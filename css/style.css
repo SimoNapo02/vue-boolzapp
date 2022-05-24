@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
 }
-
+/* common */
 body {
     display: flex;
     overflow: hidden;
@@ -32,6 +32,7 @@ body {
     z-index: 100;
 }
 
+/* main */
 .container {
     margin: auto;
     width: 80%;
@@ -39,6 +40,7 @@ body {
     height: 95%;
 }
 
+/* dimensioni cols*/
 .sx-col, .dx-col {
     float: left;
     height: 100%;
@@ -54,6 +56,7 @@ body {
     width: 65%;
 }
 
+/* colonna sinistra */
 .header-sx, .header-dx {
     width: 100%;
     height: 70px;
@@ -245,6 +248,7 @@ body {
     margin-top: 10px;
 }
 
+/* col destra */
 .dx-col {
     position: relative;
 }
