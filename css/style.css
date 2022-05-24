@@ -20,7 +20,18 @@ body {
     font-family: 'Lato', sans-serif;
 }
 
-/* STYLE */
+.f-right {
+    float: right;
+}
+
+.f-left {
+    float: left;
+}
+
+.z-index-100 {
+    z-index: 100;
+}
+
 .container {
     margin: auto;
     width: 80%;
@@ -28,7 +39,7 @@ body {
     height: 95%;
 }
 
-.sx-col  {
+.sx-col, .dx-col {
     float: left;
     height: 100%;
 }
@@ -39,14 +50,20 @@ body {
     border-right: 1px solid #D6D6D6;
 }
 
-.header-left, .header-right {
+.dx-col {
+    width: 65%;
+}
+
+.header-sx, .header-dx {
     width: 100%;
     height: 70px;
     background: #EAEAEA;
 }
 
 .header-sx .header-sx-logo,
-.header-sx .header-sx-icons {
+.header-sx .header-sx-icons,
+.header-dx .header-dx-logo,
+.header-dx .header-dx-icons {
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -54,27 +71,47 @@ body {
     height: 100%;
 }
 
-.header-sx .header-sx-logo img{
+.header-sx .header-sx-logo h3 {
+    margin-left: 5px;
+    font-size: 90%;
+}
+
+.header-sx .header-sx-logo img,
+.header-dx .header-dx-logo img {
     width: 50px;
     height: 50px;
     margin: auto 0 auto 10px;
     border-radius: 100%;
 }
-.header-sx .header-sx-logo{
+
+.header-sx .header-sx-logo,
+.header-dx .header-dx-logo {
     float: left;
 }
 
-.header-sx .header-sx-icons {
+.header-sx .header-sx-icons,
+.header-dx .header-dx-icons {
     float: right;
     width: auto;
     margin-right: 15px;
     text-align: right;
 }
 
-.header-sx .header-sx-icons i {
+.header-sx .header-sx-icons i,
+.header-dx .header-dx-icons i {
     margin: auto 10px;
     color: rgb(177, 177, 177);
     font-size: 22px;
+}
+
+.header-dx h3 {
+    margin-left: 15px;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.header-dx h3 small {
+    color: #6B7376;
 }
 
 .sx-disclaimer {
@@ -147,7 +184,7 @@ body {
 
 .sx-col .contacts {
     width: 100%;
-    height: calc(100% - 50px - 50px - 80px);
+    height: calc(100% - 70px - 50px - 80px);
     background: #fff;
     overflow-y: scroll;
 }
@@ -206,4 +243,124 @@ body {
 .sx-col .contacts .contact .contact-info small {
     color: #B6B9BB;
     margin-top: 10px;
+}
+
+.dx-col {
+    position: relative;
+}
+
+.dx-col .dx-messages-container {
+    width: 100%;
+    height: calc(100% - 70px - 70px);
+}
+
+.dx-col .dx-messages {
+    height: 100%;
+    width: 100%;
+    padding: 5% 10%;
+    background-image: url('../img/mine.jpg');
+    overflow-y: auto;
+}
+
+
+.dx-col .dx-messages .message {
+    position: relative;
+    margin: 5px 0;
+    padding: 15px 15px 20px 15px;
+    min-width: 40%;
+    max-width: 60%;
+    background: #fff;
+    border-radius: 10px;
+    font-size: 15px;
+}
+
+.dx-col .dx-messages .message::after {
+    content: '';
+    display: table;
+    overflow: hidden;
+    clear: both;
+}
+
+.dx-col .dx-messages .message:hover .message-options,
+.dx-col .dx-messages .message .message-options.active {
+    display: block;
+}
+
+.dx-col .dx-messages .message .message-options {
+    display: none;
+    color: #B6B9BB;
+    cursor: pointer;
+}
+
+.dx-col .dx-messages .message .message-options-panel {
+    position: absolute;
+    right: 0;
+    bottom: -75px;
+    width: 150px;
+    height: 80px;
+    background: white;
+    box-shadow: 0px 0px 40px -15px rgba(0, 0, 0, 0.75);
+}
+
+.dx-col .dx-messages .message .message-options-panel.active {
+    display: block;
+}
+
+.dx-col .dx-messages .message .message-options-panel>div {
+    cursor: pointer;
+    width: 100%;
+    height: 50%;
+    line-height: 40px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.dx-col .dx-messages .message .message-options-panel>div:hover {
+    color: #B6B9BB;
+}
+
+.dx-col .dx-messages .message .message-time {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    font-size: 10px;
+    color: #B6B9BB;
+}
+
+.dx-col .dx-messages .message.received {
+    background: white;
+    float: left;
+    clear: both;
+}
+
+.dx-col .dx-messages .message.sent {
+    background: #D5F9BA;
+    float: right;
+    clear: both;
+}
+
+.dx-col .dx-footer {
+    background-color: #F3EEEA;
+    width: 100%;
+    height: 70px;
+}
+
+.dx-col .dx-footer .new-message-inputs {
+    width: 80%;
+    height: 50px;
+    margin: 10px 0;
+    padding: 15px;
+    border: 0;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: lighter;
+}
+
+.dx-col .dx-footer .dx-footer-icon {
+    width: 10%;
+    height: 100%;
+    line-height: 70px;
+    text-align: center;
+    font-size: 25px;
+    color: #6B7376;
 }
