@@ -1,0 +1,209 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-image:
+    linear-gradient(to bottom,
+        #009688 0px,
+        #009688 15vh,
+        #dddbd1 15vh,
+        #d2dbdc 100%);
+    font-family: 'Lato', sans-serif;
+}
+
+/* STYLE */
+.container {
+    margin: auto;
+    width: 80%;
+    min-width: 950px;
+    height: 95%;
+}
+
+.sx-col  {
+    float: left;
+    height: 100%;
+}
+
+.sx-col {
+    width: 35%;
+    background: #E6DFD6;
+    border-right: 1px solid #D6D6D6;
+}
+
+.header-left, .header-right {
+    width: 100%;
+    height: 70px;
+    background: #EAEAEA;
+}
+
+.header-sx .header-sx-logo,
+.header-sx .header-sx-icons {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    width: 50%;
+    height: 100%;
+}
+
+.header-sx .header-sx-logo img{
+    width: 50px;
+    height: 50px;
+    margin: auto 0 auto 10px;
+    border-radius: 100%;
+}
+.header-sx .header-sx-logo{
+    float: left;
+}
+
+.header-sx .header-sx-icons {
+    float: right;
+    width: auto;
+    margin-right: 15px;
+    text-align: right;
+}
+
+.header-sx .header-sx-icons i {
+    margin: auto 10px;
+    color: rgb(177, 177, 177);
+    font-size: 22px;
+}
+
+.sx-disclaimer {
+    display: flex;
+    width: 100%;
+    height: 80px;
+    background: #8EDAFC;
+}
+
+.sx-disclaimer .sx-disclaimer-logo {
+    width: 50px;
+    height: 50px;
+    margin: auto 0 auto 20px;
+    background: #F2FBFF;
+    border-radius: 100%;
+    text-align: center;
+    color: #8EDAFC;
+    line-height: 50px;
+    font-size: 20px;
+}
+
+.sx-disclaimer .sx-disclaimer-text {
+    width: calc(100% - 50px);
+    height: auto;
+    margin: auto;
+    padding: 0 10px;
+}
+
+.sx-disclaimer .sx-disclaimer-text h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.sx-disclaimer .sx-disclaimer-text a {
+    color: #4F7485;
+    font-size: 13.5px;
+}
+
+.sx-searchbar {
+    width: 100%;
+    height: 50px;
+    background: #FAFAFA;
+}
+
+.sx-searchbar .sx-searchbar-input {
+    float: right;
+    width: calc(85% - 7px);
+    height: 36px;
+    margin: 7px 7px 7px 0;
+    padding: 0 10px;
+    border: 1px solid #F5F5F5;
+    border-left: 0;
+    border-radius: 0px 3px 3px 0;
+    color: #B6B9BB;
+}
+
+.sx-searchbar .search-label {
+    display: inline-block;
+    width: calc(15% - 7px);
+    height: 36px;
+    margin: 7px 0 7px 7px;
+    border: 1px solid #F5F5F5;
+    border-right: 0;
+    background: #fff;
+    line-height: 36px;
+    text-align: center;
+    color: #B6B9BB;
+}
+
+.sx-col .contacts {
+    width: 100%;
+    height: calc(100% - 50px - 50px - 80px);
+    background: #fff;
+    overflow-y: scroll;
+}
+
+.sx-col .contacts .contact {
+    display: flex;
+    cursor: pointer;
+    width: 100%;
+    height: 80px;
+    border-bottom: 1px solid #F5F5F5;
+}
+
+.sx-col .contacts .contact:hover {
+    background: #f4f5f5;
+}
+
+.sx-col .contacts .contact:last-child {
+    border-bottom: 0;
+}
+
+.sx-col .contacts .contact.active {
+    border-bottom-color: transparent;
+    background: #E9EBEB;
+}
+
+.sx-col .contacts .contact .contact-logo {
+    width: 60px;
+    height: 60px;
+    margin: auto 20px;
+    border-radius: 100%;
+    overflow: hidden;
+}
+
+.sx-col .contacts .contact .contact-logo img {
+    width: 100%;
+    height: 100%;
+}
+
+.sx-col .contacts .contact .contact-info {
+    width: calc(100% - 100px);
+    height: 60px;
+    margin: auto 10px auto 0;
+}
+
+.sx-col .contacts .contact .contact-info h3 {
+    font-size: 17px;
+    font-weight: normal;
+}
+
+.sx-col .contacts .contact .contact-info span.f-right {
+    color: #B6B9BB;
+    font-size: 12px;
+    font-weight: lighter;
+}
+
+.sx-col .contacts .contact .contact-info small {
+    color: #B6B9BB;
+    margin-top: 10px;
+}
