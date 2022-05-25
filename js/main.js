@@ -1,6 +1,7 @@
 var app = new Vue({
     el: '#root',
     data: {
+        active_contact: 0,
         user: {
             name: 'Simone N.',
             avatar: '_io'
@@ -169,5 +170,9 @@ var app = new Vue({
             }
         ]
     },
-    methods: {}
+    methods: {
+        change_active_contact(contact_index) {
+            this.active_contact = contact_index;
+        }
+    }
 });

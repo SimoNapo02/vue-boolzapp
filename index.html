@@ -41,7 +41,9 @@
                 </div>
                 <!-- lista contatti -->
                 <div class="contacts">
-                    <div class="contact" v-for="contact in contacts">
+                    <div class="contact" v-for="(contact, index) in contacts"
+                    @click="change_active_contact(index)"
+                    :class="index == active_contact ? 'active' : ''">
                         <div class="contact-logo">
                             <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
                         </div>
@@ -60,10 +62,10 @@
             <div class="dx-col">
                 <div class="header-dx">
                     <div class="header-dx-logo">
-                        <img src="img/avatar_1.jpg" alt="">
+                        <img :src="'img/avatar' + contacts[active_contact].avatar + '.jpg'" alt="">
                         <h3>
                             <span id="header-dx-contact-name">
-                                Michele
+                                {{ contacts[active_contact].name }}
                             </span>
                             <br>
                             <small class="time">
@@ -79,13 +81,13 @@
                 </div>
                 <div class="dx-messages-container">
                     <div class="dx-messages">
-                        <div class="message sent">
-                            prova <div class="message-time">12.20</div>
+                        <div
+                            v-for="message_object in contacts[active_contact].messages"  class="message" :class="message_object.status">
+                            <span class="message-text">
+                                {{ message_object.message }}
+                            </span>
+                            <span class="message-time">15.30</span>
                         </div>
-                        <div class="message received">
-                            prova<div class="message-time">12.20</div>
-                        </div>
-                    
                     </div>
                 </div>
                 <div class="dx-footer">
