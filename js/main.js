@@ -183,6 +183,23 @@ var app = new Vue({
                 status: 'sent'
             };
             let current_chat = this.contacts[this.active_contact].messages;
-            // inserisco il messaggio nella lista di messaggi gia inviati
+            // inserisco il messaggio nella lista di messaggi inviati
             current_chat.push(new_message_object);  
-}}});
+            // resetto l'input
+            this.new_message = '';
+
+            setTimeout(function() {
+                //  messaggio del pc
+                let pc_messsage = {
+                    date: '17/11/2020 09:57',
+                    message: 'ok',
+                    status: 'received'
+                };
+                // inserisco la risposta nei messaggi ricevuti
+                current_chat.push(pc_messsage);
+
+            }, 1000);
+
+        },
+   
+}});
