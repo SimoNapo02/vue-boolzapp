@@ -173,6 +173,16 @@ var app = new Vue({
     methods: {
         change_active_contact(contact_index) {
             this.active_contact = contact_index;
-        }
-    }
-});
+            this.autoscroll();
+        },
+        send_message() {
+            // creo un nuovo messaggio
+            let new_message_object = {
+                date: '17/11/2020 09:57',
+                message: this.new_message,
+                status: 'sent'
+            };
+            let current_chat = this.contacts[this.active_contact].messages;
+            // inserisco il messaggio nella lista di messaggi gia inviati
+            current_chat.push(new_message_object);  
+}}});
