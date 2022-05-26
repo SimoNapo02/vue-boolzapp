@@ -286,12 +286,6 @@ body {
     display: block;
 }
 
-.dx-col .dx-messages .message .message-options {
-    display: none;
-    color: #B6B9BB;
-    cursor: pointer;
-}
-
 .dx-col .dx-messages .message .message-options-panel {
     position: absolute;
     right: 0;
