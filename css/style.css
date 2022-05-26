@@ -204,6 +204,10 @@ body {
     background: #f4f5f5;
 }
 
+.sx-col .contacts .contact:last-child {
+    border-bottom: 0;
+}
+
 .sx-col .contacts .contact.active {
     border-bottom-color: transparent;
     background: #E9EBEB;
@@ -284,6 +288,12 @@ body {
 .dx-col .dx-messages .message:hover .message-options,
 .dx-col .dx-messages .message .message-options.active {
     display: block;
+}
+
+.dx-col .dx-messages .message .message-options {
+    display: none;
+    color: #B6B9BB;
+    cursor: pointer;
 }
 
 .dx-col .dx-messages .message .message-options-panel {

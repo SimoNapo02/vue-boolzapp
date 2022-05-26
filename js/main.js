@@ -1,9 +1,13 @@
+dayjs.extend(window.dayjs_plugin_customParseFormat);
+
 var app = new Vue({
     el: '#root',
     data: {
         active_contact: 0,
+        new_message: '',
+        search_text: '',
         user: {
-            name: 'Simone N.',
+            name: 'Sofia',
             avatar: '_io'
         },
         contacts: [
@@ -176,30 +180,60 @@ var app = new Vue({
             this.autoscroll();
         },
         send_message() {
-            // creo un nuovo messaggio
-            let new_message_object = {
-                date: '17/11/2020 09:57',
-                message: this.new_message,
-                status: 'sent'
-            };
-            let current_chat = this.contacts[this.active_contact].messages;
-            // inserisco il messaggio nella lista di messaggi inviati
-            current_chat.push(new_message_object);  
-            // resetto l'input
-            this.new_message = '';
-
-            setTimeout(function() {
-                //  messaggio del pc
-                let pc_messsage = {
-                    date: '17/11/2020 09:57',
-                    message: 'ok',
-                    status: 'received'
+            // controllo che il testo non sia vuoto prima di inviare il messaggio
+            if(this.new_message.trim().length != 0) {
+                // creo un messaggio da inviare
+                let new_message_object = {
+                    date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
+                    message: this.new_message,
+                    status: 'sent'
                 };
-                // inserisco la risposta nei messaggi ricevuti
-                current_chat.push(pc_messsage);
+                let current_chat = this.contacts[this.active_contact].messages;
+                // inserisco il messaggio nella lista di messaggi inviati
+                current_chat.push(new_message_object);
+                // resetto l'input per creare sempre nuovi messaggi
+                this.new_message = '';
 
-            }, 1000);
+                this.autoscroll();
+
+                // risposta del pc
+                setTimeout(function() {
+                    let pc_messsage = {
+                        date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
+                        message: 'ok',
+                        status: 'received'
+                    };
+                    // inserisco il messaggio in quelli ricevuti
+                    current_chat.push(pc_messsage);
+
+                    app.autoscroll();
+
+                }, 1000);
+            }
 
         },
-   
-}});
+        autoscroll() {
+            // faccio scrollare i messaggi automaticamente
+            Vue.nextTick(function() {
+                let chat_container = document.getElementsByClassName('right-messages')[0];
+                chat_container.scrollTop = chat_container.scrollHeight;
+            });
+        },
+
+        // permetto di filtrare i contatti
+        search() {
+            this.contacts.forEach((contact) => {
+                let contact_name = contact.name.toLowerCase();
+                let searched_name = this.search_text.toLowerCase();
+                if(contact_name.includes(searched_name)) {
+                    contact.visible = true;
+                } else {
+                    contact.visible = false;
+                }
+            });
+        },
+        get_time(date_string) {
+            return dayjs(date_string, "DD/MM/YYYY HH:mm:ss").format('HH:mm');
+        }
+    }
+});
